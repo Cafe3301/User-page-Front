@@ -1,76 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1c1c1c, #4d4d4d);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+html, body {
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    height: 100%; /* Garante que o body ocupe toda a altura da tela */
+    background-color: #1e1e1e; /* Cor de fundo */
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    height: 100%; /* Ocupa toda a altura da tela */
 }
 
-.form-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
+.status-car{
+    background-color: #252525;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Centraliza os itens */
+    margin-bottom: 1rem; /* Espaço abaixo do cabeçalho */
+}
+
+.photo {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    transition: background 0.3s;
-}
-
-.input-group input:focus {
-    background: rgba(255, 255, 255, 0.3);
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #4e8cff, #007bff);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #0056b3;
+    font-family: 'Poppins', sans-serif;
+    color: #EFEFEF;
+    margin: 0; /* Remove a margem padrão do h1 */
+    padding: 0; /* Remove o preenchimento padrão do h1 */
+    font-size: 2rem; /* Ajuste o tamanho da fonte conforme necessário */
 }
 
 p {
-    margin-top: 15px;
-    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    color: #A4A4A4;
+    margin: 0; /* Remove a margem do parágrafo */
+    padding: 0; /* Remove o preenchimento padrão do parágrafo */
+    font-size: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.form-card {
+    width: 100%; /* Ajusta a largura do cartão do formulário */
+    max-width: 800px; /* Aumenta a largura máxima do cartão para desktop */
+    padding: 2rem; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #252525; /* Cor de fundo do cartão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+}
+
+.input-group {
+    margin-bottom: 1.5rem; /* Espaço entre os campos */
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    width: 100%; /* Largura total do input */
+    padding: 0.75rem; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 13px; /* Bordas arredondadas */
+    background-color: #363636; /* Fundo escuro do input */
+    color: #aaa; /* Cor do texto */
+    font-size: 1rem; /* Tamanho da fonte */
+}
+
+input::placeholder {
+    color: #A4A4A4; /* Cor do texto placeholder */
+    opacity: 0.7; /* Opacidade para o placeholder */
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px; /* Adiciona um espaço de 10 pixels abaixo do label */
+    display: block; /* Faz o label ocupar a largura total disponível */
+    color: #979797; /* Ajusta a cor do texto, se necessário */
+    font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    width: 100%; /* Largura total do botão */
+    padding: 0.75rem; /* Espaçamento interno */
+    background: linear-gradient(90deg, #68e4b4 10%, #2e5847 90%);
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar clicável */
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+.login {
+    padding-top: 1.5rem;
+    font-size: 15px;
+    text-align: center;
 }

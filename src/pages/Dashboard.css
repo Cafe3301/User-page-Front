@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.dashboard-container {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.header {
+    background-color: #1e1e1e;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.greeting-container h2 {
+    text-align: justify;
+    margin: 0;
+    font-size: 46px;
+    padding-top: 2rem;
+    margin-right: 7rem;
+}
+
+.greeting-container p {
+    text-align: justify;
+    font-size: 14px;
+    color: #A4A4A4;
+    padding-bottom: 2rem;
+    margin-right: 6rem;
+}
+
+.greeting-container p span {
+    display: block;
+}
+
+.container-car {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(130deg, #000000 10%, #21583e 90%);
+
+    min-height: 100vh; /* Define uma altura mínima para ajudar no alinhamento vertical */
+}
+
+.car-section {
+    background: #ffffff11;
+    text-align: center;
+    border-radius: 20px;
+    padding: 4rem;
+}
+
+.non-car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+}
+
+.non-car p span {
+    display: block;
+}
+
+.non-car img {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.queue-car {
+    border-radius: 10px;
+    padding: 3rem;
+    margin-top: 2rem;
+    width: 300px;
+    text-align: center;
+}
+
+.queue-car p {
+    text-align: center;
+    font-size: 20px;
+    color: #EFEFEF;
+}
+
+.car-status-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+}
+
+.car-wish {
+    padding-bottom: 2rem;
+}
+
+.car-status-container p {
+    text-align: center;
+    font-size: 20px;
+    color: #EFEFEF;
+}
+
+.notification {
+    font-size: 98px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background: linear-gradient(90deg, #68e4b4 10%, #2e5847 90%);
+    color: white;
+    border: none;
+    margin-top: 2rem;
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #ff8567;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: #1e1e1e; /* Torna o fundo do footer transparente */
+    justify-content: center;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed; /* Fixar o rodapé na parte inferior da tela */
+    bottom: 0; /* Alinha o rodapé na parte inferior */
+}
+
+.footer-icon {
+    width: 20%;
+    margin: 0 1rem;
+}
+/* modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para que o modal fique acima dos outros elementos */
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px; /* Ajuste o tamanho conforme necessário */
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input,
+.modal-content select {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.button-confirm {
+    background: #21583e;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-cancel{
+    background: #a52020;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background: #68e4b4;
+}
+
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: row; /* Mantém os ícones na horizontal em telas menores */
+        align-items: center;
+    }
+
+    .footer-icon {
+        width: 20%; /* Mantém o tamanho dos ícones em telas menores */
+        margin: 0.5rem 0; /* Margem vertical menor */
+    }
+}
+
+
+
+/* Media queries para telas maiores (computadores) */
+@media (min-width: 768px) {
+    .footer {
+        width: 100%;
+    }
+
+    .footer-icon {
+        width: 5%; /* Reduz o tamanho dos ícones em telas maiores */
+    }
+
+    .dashboard-container {
+        width: 100%;
+    }
+}

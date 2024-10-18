@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importando Link do react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Importando useNavigate para redirecionar
+import axios from 'axios';
 import './Register.css'; // Importando o CSS
 
 const Register = () => {
+    // Estados para armazenar os dados do formulário e a mensagem de feedback
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,36 +12,75 @@ const Register = () => {
     const [phone, setPhone] = useState('');
     const [cpf, setCpf] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate(); // Hook para redirecionar após o registro
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        // Lógica de envio do formulário...
+        e.preventDefault(); // Previne o comportamento padrão do formulário
+
+        const userData = {
+            name,
+            email,
+            password,
+            confirmpassword,
+            phone,
+            cpf
+        };
+
+        console.log('Dados enviados para registro:', userData); // Log para depuração
+
+        try {
+            const response = await axios.post('http://localhost:3000/auth/register', userData);
+            setMessage(response.data.msg);
+
+            // Armazena informações do usuário no localStorage
+            localStorage.setItem('authToken', response.data.token); // Armazena o token
+            localStorage.setItem('userName', response.data.user.name);
+            localStorage.setItem('userEmail', response.data.user.email);
+            localStorage.setItem('userCPF', response.data.user.cpf);
+
+            // Redirecionar para a página protegida após o registro
+            navigate('/dashboard'); // Redirecionar para a página do dashboard
+        } catch (error) {
+            console.log('Erro ao registrar:', error); // Log do erro
+            if (error.response && error.response.data) {
+                setMessage(error.response.data.msg); // Mostra a mensagem de erro retornada do servidor
+            } else {
+                setMessage('Erro ao conectar com o servidor'); // Mensagem genérica de erro
+            }
+        }
     };
 
     return (
         <div className="container">
+            <div className="header-container">
+                <img className='photo' src="/src/assets/illustration.svg" alt="Person photo" />
+                <h1 className='titulo__inicio'>Get Started Free</h1>
+                <p className='paragrafo__inicio'>Free Forever. No Credit Card Needed</p>
+            </div>
             <div className="form-card">
-                <h1>Get Started Free</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
+                        <label className='seu__nome'>Seu Nome</label>
                         <input
                             type="text"
-                            placeholder="Seu Nome"
+                            placeholder="João Pedro da Silva"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
                     </div>
                     <div className="input-group">
+                        <label className='seu__nome'>Seu Email</label>
                         <input
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="seuemail@gmail.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
                     <div className="input-group">
+                        <label className='seu__nome'>Sua Senha</label>
                         <input
                             type="password"
                             placeholder="Senha"
@@ -49,24 +90,27 @@ const Register = () => {
                         />
                     </div>
                     <div className="input-group">
+                        <label className='seu__nome'>Confirme sua senha</label>
                         <input
                             type="password"
-                            placeholder="Confirme a Senha"
+                            placeholder="Confirme sua senha"
                             value={confirmpassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
                     </div>
                     <div className="input-group">
+                        <label className='seu__nome'>Seu Telefone</label>
                         <input
                             type="tel"
-                            placeholder="Telefone"
+                            placeholder="61982828282"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             required
                         />
                     </div>
                     <div className="input-group">
+                        <label className='seu__nome'>Seu CPF</label>
                         <input
                             type="text"
                             placeholder="CPF"
@@ -77,8 +121,8 @@ const Register = () => {
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>
-                {message && <p>{message}</p>}
-                <p>
+                {message && <p>{message}</p>} {/* Mensagem de feedback */}
+                <p className='login'>
                     Já tem uma conta? <Link to="/login">Faça login</Link>
                 </p>
             </div>

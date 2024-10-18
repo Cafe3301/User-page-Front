@@ -1,0 +1,93 @@
+.profile-container {
+    display: flex;
+    flex-direction: column; /* Adiciona coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    background-color: #1e1e1e; /* Cor de fundo da página, se desejar */
+}
+
+.profile-content {
+    text-align: center;
+    background-color: 1e1e1e; /* Cor do fundo do conteúdo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.initial-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #007bff; /* Cor da bolinha */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 0 auto 20px; /* Centraliza e adiciona espaçamento inferior */
+}
+
+.view-appointments {
+    margin-top: 20px; /* Adiciona espaçamento acima do botão */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: #1e1e1e; /* Torna o fundo do footer transparente */
+    justify-content: center;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed; /* Fixar o rodapé na parte inferior da tela */
+    bottom: 0; /* Alinha o rodapé na parte inferior */
+}
+
+.footer-icon {
+    width: 20%;
+    margin: 0 1rem;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: row; /* Mantém os ícones na horizontal em telas menores */
+        align-items: center;
+    }
+
+    .footer-icon {
+        width: 20%; /* Mantém o tamanho dos ícones em telas menores */
+        margin: 0.5rem 0; /* Margem vertical menor */
+    }
+}
+
+
+
+/* Media queries para telas maiores (computadores) */
+@media (min-width: 768px) {
+    .footer {
+        width: 100%;
+    }
+
+    .footer-icon {
+        width: 5%; /* Reduz o tamanho dos ícones em telas maiores */
+    }
+
+    .dashboard-container {
+        width: 100%;
+    }
+}

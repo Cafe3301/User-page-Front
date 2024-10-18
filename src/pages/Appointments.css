@@ -1,0 +1,72 @@
+.appointments-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    background-color: #f9f9f9; /* Cor de fundo suave */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para um efeito elevado */
+}
+
+h1 {
+    text-align: center; /* Centraliza o título */
+    color: #333; /* Cor do texto */
+    margin-bottom: 20px;
+}
+
+.appointments-block {
+    background-color: #fff; /* Fundo branco para o bloco de agendamentos */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas para o bloco */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra para o bloco */
+}
+
+.appointments-list {
+    list-style-type: none; /* Remove as marcas de lista padrão */
+    padding: 0; /* Remove o padding padrão */
+}
+
+.appointment-item {
+    background-color: #f2f2f2; /* Fundo suave para os itens da lista */
+    padding: 10px; /* Espaçamento interno */
+    margin: 10px 0; /* Margem entre os itens */
+    border-radius: 8px; /* Bordas arredondadas para os itens */
+    transition: background-color 0.2s; /* Transição suave ao passar o mouse */
+}
+
+.appointment-item:hover {
+    background-color: #e0e0e0; /* Mudança de cor ao passar o mouse */
+}
+
+.appointment-date,
+.appointment-car,
+.appointment-status {
+    margin: 5px 0; /* Margem entre as linhas */
+    color: #555; /* Cor do texto */
+}
+
+footer {
+    background-color: #1e1e1e; /* Cor de fundo do footer */
+    display: flex; /* Flexbox para distribuir ícones */
+    justify-content: space-around; /* Espaço igual entre os itens */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 1rem 0; /* Espaçamento interno */
+    position: fixed; /* Mantém o footer fixo na parte inferior */
+    bottom: 0; /* Fica na parte inferior da página */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Largura total */
+    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+}
+
+.footer-icon {
+    width: 24px; /* Largura do ícone */
+    height: 24px; /* Altura do ícone */
+}
+
+footer a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #000; /* Cor do texto dos links */
+}
+
+footer a:hover {
+    opacity: 0.7; /* Efeito de hover para suavizar a interação */
+}

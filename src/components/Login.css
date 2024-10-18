@@ -1,76 +1,61 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1c1c1c, #4d4d4d);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #1e1e1e; /* Cor de fundo uniforme para todo o body */
+    color: #EFEFEF; /* Cor do texto padrão */
+    font-family: 'Poppins', sans-serif; /* Fonte padrão */
+    margin: 0; /* Remove margens padrão do body */
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.header-container .photo {
+    padding: 3rem;
 }
 
-.form-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
+.login-page .Forgot-passowrd {
+    text-align: end;
+    color: #A4A4A4;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #fff;
+.login-page .form-card {
+    width: 100%; /* Largura total do cartão */
+    max-width: 800px; /* Limite de largura do cartão */
+    margin: auto; /* Centraliza o cartão horizontalmente */
+    padding: 2rem; /* Adiciona espaçamento interno */
+    padding-bottom: 2.9rem;
+    background-color: #252525; /* Cor de fundo do cartão */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+}
+
+.form-card h1 {
+    color: #FFFFFF; /* Cor do título */
+    margin: 0; /* Remove a margem padrão do h1 */
+    padding-top: 1.5rem; /* Remove o preenchimento padrão do h1 */
+    font-size: 2rem; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.form-card p {
+    color: #A4A4A4; /* Cor do parágrafo */
+    margin: 0; /* Remove a margem do parágrafo */
+    padding: 0; /* Remove o preenchimento padrão do parágrafo */
+    font-size: 1rem;
+    padding-bottom: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
 }
 
 .input-group {
-    margin-bottom: 15px;
+    padding-bottom: 0.5rem;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    transition: background 0.3s;
+.login-page .login {
+    padding-top: 1.5rem;
+    color: #A4A4A4; /* Cor do texto do link */
 }
 
-.input-group input:focus {
-    background: rgba(255, 255, 255, 0.3);
-    outline: none;
+.login-page .login a {
+    color: #A4A4A4; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado do link */
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #4e8cff, #007bff);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-p {
-    margin-top: 15px;
-    color: #fff;
+.login-page .login a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
 }
