@@ -10,7 +10,8 @@ const Appointments = () => {
     useEffect(() => {
         const fetchAppointments = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/appointments/user/${userCPF}`);
+                const apiUrl = import.meta.env.VITE_ADMIN_API_URL; 
+                const response = await axios.get(`${apiUrl}/appointments/user/${userCPF}`);
                 setAppointments(response.data);
             } catch (error) {
                 console.error("Erro ao buscar agendamentos:", error);
@@ -33,7 +34,7 @@ const Appointments = () => {
                         {appointments.map(appointment => (
                             <li key={appointment._id}>
                                 <p><strong>Data:</strong> {new Date(appointment.appointmentDate).toLocaleString()}</p>
-                                <p><strong>Carro:</strong> {appointment.carId.name}</p> {/* Acesse a propriedade correta aqui */}
+                                <p><strong>Carro:</strong> {appointment.carId.name}</p> {}
                                 <p><strong>Status:</strong> {appointment.status}</p>
                             </li>
                         ))}

@@ -1,15 +1,15 @@
 .profile-container {
     display: flex;
-    flex-direction: column; /* Adiciona coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    height: 100vh; /* Ocupa toda a altura da tela */
-    background-color: #1e1e1e; /* Cor de fundo da página, se desejar */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1e1e1e;
 }
 
 .profile-content {
     text-align: center;
-    background-color: 1e1e1e; /* Cor do fundo do conteúdo */
+    background-color: 1e1e1e;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -19,22 +19,22 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #007bff; /* Cor da bolinha */
+    background-color: #007bff;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    margin: 0 auto 20px; /* Centraliza e adiciona espaçamento inferior */
+    margin: 0 auto 20px;
 }
 
 .view-appointments {
-    margin-top: 20px; /* Adiciona espaçamento acima do botão */
+    margin-top: 20px;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #007bff; /* Cor do botão */
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -43,19 +43,19 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+    background-color: #0056b3;
 }
 
 footer {
     display: flex;
     flex-direction: row;
     width: 100%;
-    background: #1e1e1e; /* Torna o fundo do footer transparente */
+    background: #1e1e1e;
     justify-content: center;
     padding: 1rem 0;
     text-align: center;
-    position: fixed; /* Fixar o rodapé na parte inferior da tela */
-    bottom: 0; /* Alinha o rodapé na parte inferior */
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-icon {
@@ -65,26 +65,23 @@ footer {
 
 @media (max-width: 768px) {
     footer {
-        flex-direction: row; /* Mantém os ícones na horizontal em telas menores */
+        flex-direction: row;
         align-items: center;
     }
 
     .footer-icon {
-        width: 20%; /* Mantém o tamanho dos ícones em telas menores */
-        margin: 0.5rem 0; /* Margem vertical menor */
+        width: 20%;
+        margin: 0.5rem 0;
     }
 }
 
-
-
-/* Media queries para telas maiores (computadores) */
 @media (min-width: 768px) {
     .footer {
         width: 100%;
     }
 
     .footer-icon {
-        width: 5%; /* Reduz o tamanho dos ícones em telas maiores */
+        width: 5%;
     }
 
     .dashboard-container {

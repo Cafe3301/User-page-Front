@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Importando useNavigate para redirecionar
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Register.css'; // Importando o CSS
+import './Register.css';
+import illustrationImage from '../assets/illustration.svg'; 
 
 const Register = () => {
-    // Estados para armazenar os dados do formulário e a mensagem de feedback
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -12,10 +12,10 @@ const Register = () => {
     const [phone, setPhone] = useState('');
     const [cpf, setCpf] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate(); // Hook para redirecionar após o registro
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
+        e.preventDefault(); 
 
         const userData = {
             name,
@@ -26,26 +26,23 @@ const Register = () => {
             cpf
         };
 
-        console.log('Dados enviados para registro:', userData); // Log para depuração
-
         try {
-            const response = await axios.post('http://localhost:3000/auth/register', userData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
             setMessage(response.data.msg);
 
-            // Armazena informações do usuário no localStorage
-            localStorage.setItem('authToken', response.data.token); // Armazena o token
+
+            localStorage.setItem('authToken', response.data.token);
             localStorage.setItem('userName', response.data.user.name);
             localStorage.setItem('userEmail', response.data.user.email);
             localStorage.setItem('userCPF', response.data.user.cpf);
 
-            // Redirecionar para a página protegida após o registro
-            navigate('/dashboard'); // Redirecionar para a página do dashboard
+
+            navigate('/dashboard');
         } catch (error) {
-            console.log('Erro ao registrar:', error); // Log do erro
             if (error.response && error.response.data) {
-                setMessage(error.response.data.msg); // Mostra a mensagem de erro retornada do servidor
+                setMessage(error.response.data.msg); 
             } else {
-                setMessage('Erro ao conectar com o servidor'); // Mensagem genérica de erro
+                setMessage('Erro ao conectar com o servidor'); 
             }
         }
     };
@@ -53,7 +50,7 @@ const Register = () => {
     return (
         <div className="container">
             <div className="header-container">
-                <img className='photo' src="/src/assets/illustration.svg" alt="Person photo" />
+                <img className='photo' src={illustrationImage} alt="Person photo" />
                 <h1 className='titulo__inicio'>Get Started Free</h1>
                 <p className='paragrafo__inicio'>Free Forever. No Credit Card Needed</p>
             </div>
@@ -107,6 +104,7 @@ const Register = () => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             required
+                            maxLength="11" // Limite para telefone
                         />
                     </div>
                     <div className="input-group">
@@ -117,11 +115,12 @@ const Register = () => {
                             value={cpf}
                             onChange={(e) => setCpf(e.target.value)}
                             required
+                            maxLength="14" // Limite para CPF
                         />
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>
-                {message && <p>{message}</p>} {/* Mensagem de feedback */}
+                {message && <p>{message.trim()}</p>} {/* Mensagem de feedback */}
                 <p className='login'>
                     Já tem uma conta? <Link to="/login">Faça login</Link>
                 </p>

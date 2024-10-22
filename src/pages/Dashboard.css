@@ -137,19 +137,19 @@ footer {
     display: flex;
     flex-direction: row;
     width: 100%;
-    background: #1e1e1e; /* Torna o fundo do footer transparente */
+    background: #1e1e1e; 
     justify-content: center;
     padding: 1rem 0;
     text-align: center;
-    position: fixed; /* Fixar o rodapé na parte inferior da tela */
-    bottom: 0; /* Alinha o rodapé na parte inferior */
+    position: fixed; 
+    bottom: 0; 
 }
 
 .footer-icon {
     width: 20%;
     margin: 0 1rem;
 }
-/* modal */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -160,14 +160,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Para que o modal fique acima dos outros elementos */
+    z-index: 1000; 
 }
 
 .modal-content {
     background: white;
     padding: 2rem;
     border-radius: 10px;
-    width: 400px; /* Ajuste o tamanho conforme necessário */
+    width: 400px; 
     text-align: center;
 }
 
@@ -213,26 +213,26 @@ footer {
 
 @media (max-width: 768px) {
     footer {
-        flex-direction: row; /* Mantém os ícones na horizontal em telas menores */
+        flex-direction: row; 
         align-items: center;
     }
 
     .footer-icon {
-        width: 20%; /* Mantém o tamanho dos ícones em telas menores */
-        margin: 0.5rem 0; /* Margem vertical menor */
+        width: 20%; 
+        margin: 0.5rem 0; 
     }
 }
 
 
 
-/* Media queries para telas maiores (computadores) */
+
 @media (min-width: 768px) {
     .footer {
         width: 100%;
     }
 
     .footer-icon {
-        width: 5%; /* Reduz o tamanho dos ícones em telas maiores */
+        width: 5%; 
     }
 
     .dashboard-container {

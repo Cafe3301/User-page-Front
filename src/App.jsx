@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './pages/Dashboard';
@@ -12,9 +12,10 @@ const App = () => {
     return (
         <Router>
             <Routes>
+                {/* Redireciona da rota raiz (/) para /register */}
+                <Route path="/" element={<Navigate to="/register" />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                {/* Rota protegida */}
                 <Route
                     path="/dashboard"
                     element={

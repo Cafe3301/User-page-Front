@@ -1,61 +1,76 @@
 body {
-    background-color: #1e1e1e; /* Cor de fundo uniforme para todo o body */
-    color: #EFEFEF; /* Cor do texto padrão */
-    font-family: 'Poppins', sans-serif; /* Fonte padrão */
-    margin: 0; /* Remove margens padrão do body */
+    background-color: #1e1e1e;
+    color: #EFEFEF;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 .header-container .photo {
     padding: 3rem;
 }
 
-.login-page .Forgot-passowrd {
-    text-align: end;
-    color: #A4A4A4;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+.titulo__inicio {
+    color: #FFFFFF;
+    margin: 0;
+    padding-top: 1.5rem;
+    font-size: 2rem;
 }
+
+.paragrafo__inicio {
+    color: #A4A4A4;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.login-page .forgot-password {
+    padding-bottom: 1.2rem;
+    color: #A4A4A4;
+    text-align: end;
+}
+
+.login-page .forgot-password a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.login-page .forgot-password a:hover {
+    text-decoration: underline;
+}
+
 
 .login-page .form-card {
-    width: 100%; /* Largura total do cartão */
-    max-width: 800px; /* Limite de largura do cartão */
-    margin: auto; /* Centraliza o cartão horizontalmente */
-    padding: 2rem; /* Adiciona espaçamento interno */
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
     padding-bottom: 2.9rem;
-    background-color: #252525; /* Cor de fundo do cartão */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    background-color: #252525;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form-card h1 {
-    color: #FFFFFF; /* Cor do título */
-    margin: 0; /* Remove a margem padrão do h1 */
-    padding-top: 1.5rem; /* Remove o preenchimento padrão do h1 */
-    font-size: 2rem; /* Ajuste o tamanho da fonte conforme necessário */
-}
-
-.form-card p {
-    color: #A4A4A4; /* Cor do parágrafo */
-    margin: 0; /* Remove a margem do parágrafo */
-    padding: 0; /* Remove o preenchimento padrão do parágrafo */
-    font-size: 1rem;
-    padding-bottom: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
+label{ /*mexe global*/
+    color: #EFEFEF;
 }
 
 .input-group {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0rem;
 }
 
-.login-page .login {
+.login-page .register {
     padding-top: 1.5rem;
-    color: #A4A4A4; /* Cor do texto do link */
+    color: #A4A4A4;
+    text-align: center;
 }
 
-.login-page .login a {
-    color: #A4A4A4; /* Cor do link */
-    text-decoration: none; /* Remove sublinhado do link */
+.login-page .register a {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
-.login-page .login a:hover {
-    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+.login-page .register a:hover {
+    text-decoration: none;
 }

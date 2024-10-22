@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importando o Link
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -28,7 +28,8 @@ const Dashboard = () => {
             }
 
             try {
-                const response = await axios.get(`http://localhost:5000/api/cars/user/${userCPF}`);
+                const apiUrl = import.meta.env.VITE_ADMIN_API_URL; 
+                const response = await axios.get(`${apiUrl}/cars/user/${userCPF}`);
                 setCars(response.data);
             } catch (error) {
                 console.error("Erro ao buscar os carros:", error);
@@ -39,7 +40,8 @@ const Dashboard = () => {
 
     const fetchQueueCounts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/cars/queue/count');
+            const apiUrl = import.meta.env.VITE_ADMIN_API_URL; 
+            const response = await axios.get(`${apiUrl}/cars/queue/count`);
             const { awaiting, washing } = response.data;
             const overall = awaiting + washing;
             setQueueCount(overall); 
@@ -90,7 +92,8 @@ const Dashboard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/appointments', appointmentData);
+            const apiUrl = import.meta.env.VITE_ADMIN_API_URL; // Usando a variável de ambiente
+            const response = await axios.post(`${apiUrl}/appointments`, appointmentData);
             console.log('Agendamento criado:', response.data);
             handleModalClose();
         } catch (error) {
