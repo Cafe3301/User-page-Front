@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Register.css';
-import illustrationImage from '../assets/illustration.svg?url'; 
+import './Register.css'; 
+import illustrationImage from '../assets/car.svg'; 
+
 
 const Register = () => {
     const [name, setName] = useState('');
