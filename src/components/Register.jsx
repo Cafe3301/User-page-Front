@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css'; 
-import illustrationImage from '../assets/car.svg'; 
+import illustrationImage from '../assets/register.svg'; 
 
 
 const Register = () => {
