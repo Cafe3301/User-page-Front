@@ -2,57 +2,42 @@
 
 ## Descrição do Projeto
 
-Este projeto é um sistema de agendamento e gerenciamento de lava carros, desenvolvido utilizando **ReactJS** no front-end, **Node.js** no back-end e **MongoDB** como banco de dados. O objetivo é fornecer uma plataforma simples e eficiente para usuários agendarem serviços de lavagem de carros, além de permitir que administradores gerenciem esses serviços.
+Este projeto consiste em uma aplicação de lava-carros, que permite aos usuários agendar serviços de lavagem de veículos. A aplicação é dividida em duas partes principais: o frontend, que é construído com React, e o backend, que utiliza MongoDB para o armazenamento de dados.
+
+### Estrutura do Projeto
+
+- **Frontend do Administrador**: [Admin-Frontend](https://github.com/Cafe3301/Admin-Frontend)
+- **Backend do Usuário**: [User-backend](https://github.com/Cafe3301/User-backend)
+- **Backend do Administrador**: [Admin-page-Backend](https://github.com/Cafe3301/Admin-page-Backend)
+- **Frontend do Usuário**: [User-page-Front](https://github.com/Cafe3301/User-page-Front)
 
 ## Tecnologias Utilizadas
 
-- **Front-end:**
-  - [ReactJS](https://reactjs.org/)
-  - [Axios](https://axios-http.com/)
-  - [React Router](https://reactrouter.com/)
+- **Frontend**:
+  - React
+  - React Router
+  - Axios (para chamadas de API)
+  - Redux (para gerenciamento de estado)
 
-- **Back-end:**
-  - [Node.js](https://nodejs.org/)
-  - [Express.js](https://expressjs.com/)
-  - [Mongoose](https://mongoosejs.com/)
-
-- **Banco de Dados:**
-  - [MongoDB](https://www.mongodb.com/)
+- **Backend**:
+  - Node.js
+  - Express
+  - MongoDB
+  - Mongoose (para modelagem de dados)
 
 ## Funcionalidades
 
 ### Para Usuários
 
-- **Agendamento de Serviços:** Os usuários podem visualizar os serviços disponíveis e agendar uma lavagem.
-- **Visualização de Agendamentos:** Os usuários podem ver seus agendamentos futuros.
-- **Cancelamento de Agendamentos:** Opção para cancelar agendamentos realizados.
+- **Agendamento de Lavagens**: Usuários podem selecionar serviços e agendar uma lavagem de carro.
+- **Visualização de Serviços**: Lista de serviços disponíveis com descrição e preços.
+- **Gerenciamento de Conta**: Usuários podem criar e gerenciar suas contas.
 
 ### Para Administradores
 
-- **Gerenciamento de Serviços:** Adicionar, editar ou remover serviços de lavagem.
-- **Visualização de Agendamentos:** Visualizar todos os agendamentos feitos pelos usuários.
-- **Cancelamento de Agendamentos:** Cancelar agendamentos quando necessário.
-
-## Estrutura do Projeto
-
-```
-lava-car-project/
-├── client/              # Código do Front-end
-│   ├── src/
-│   │   ├── components/   # Componentes React
-│   │   ├── pages/        # Páginas do aplicativo
-│   │   ├── App.js        # Componente principal
-│   │   └── index.js      # Ponto de entrada
-│   ├── public/           # Arquivos públicos
-│   └── package.json      # Dependências do Front-end
-├── server/              # Código do Back-end
-│   ├── models/           # Modelos Mongoose
-│   ├── routes/           # Rotas do Express
-│   ├── controllers/      # Lógica de controle
-│   ├── config/           # Configurações do MongoDB
-│   └── package.json      # Dependências do Back-end
-└── README.md             # Documentação do projeto
-```
+- **Painel de Controle**: Administradores têm acesso a um painel onde podem gerenciar agendamentos e serviços.
+- **Gerenciamento de Serviços**: Adição, edição e remoção de serviços oferecidos.
+- **Visualização de Relatórios**: Estatísticas sobre o uso do serviço e feedback dos usuários.
 
 ## Instalação
 
@@ -61,60 +46,61 @@ lava-car-project/
 - Node.js
 - MongoDB
 
-### Passo a Passo
+### Configuração do Backend
 
-1. Clone o repositório:
-
+1. Clone o repositório do backend do usuário e do administrador:
    ```bash
-   git clone https://github.com/seu-usuario/lava-car-project.git
+   git clone https://github.com/Cafe3301/User-backend.git
+   git clone https://github.com/Cafe3301/Admin-page-Backend.git
    ```
 
-2. Navegue até a pasta do servidor e instale as dependências:
-
+2. Navegue até as pastas clonadas e instale as dependências:
    ```bash
-   cd lava-car-project/server
+   cd User-backend
+   npm install
+
+   cd ../Admin-page-Backend
    npm install
    ```
 
-3. Configure o MongoDB no arquivo de configuração (`config/db.js`).
+3. Configure o MongoDB e adicione as variáveis de ambiente necessárias.
 
 4. Inicie o servidor:
-
    ```bash
    npm start
    ```
 
-5. Navegue até a pasta do cliente e instale as dependências:
+### Configuração do Frontend
 
+1. Clone os repositórios do frontend do usuário e do administrador:
    ```bash
-   cd ../client
+   git clone https://github.com/Cafe3301/User-page-Front.git
+   git clone https://github.com/Cafe3301/Admin-Frontend.git
+   ```
+
+2. Navegue até as pastas clonadas e instale as dependências:
+   ```bash
+   cd User-page-Front
+   npm install
+
+   cd ../Admin-Frontend
    npm install
    ```
 
-6. Inicie o aplicativo React:
-
+3. Inicie a aplicação:
    ```bash
    npm start
    ```
-
-### Acesso ao Aplicativo
-
-Após iniciar o servidor e o cliente, você pode acessar o aplicativo através do navegador em `http://localhost:3000`.
-
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pedido de pull.
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Contato
 
-Para dúvidas ou sugestões, entre em contato: seu-email@example.com.
+Para mais informações, entre em contato:
 
-*/arrumar/*
+- **Nome**: Eduardo Alkimim Reis  
+- **Email**: reis6@outlook.com
+- **LinkedIn**: [Seu LinkedIn](https://www.linkedin.com/in/eduardo-alkimim-reis-a5b26a258/)
 
----
-
-Sinta-se à vontade para personalizar qualquer seção conforme necessário!
