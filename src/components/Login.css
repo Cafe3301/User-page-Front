@@ -12,6 +12,23 @@ body {
     margin-top: -100px;
 }
 
+.password-page .form-card {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    margin-top: 20px;
+    padding-bottom: 2.9rem;
+    background-color: #252525;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    /*mexe global*/
+    color: #EFEFEF;
+}
+
 .titulo__inicio {
     color: #FFFFFF;
     margin: 0;
@@ -42,23 +59,6 @@ body {
 
 .login-page .forgot-password a:hover {
     text-decoration: underline;
-}
-
-
-.login-page .form-card {
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    padding: 2rem;
-    padding-bottom: 2.9rem;
-    background-color: #252525;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-label {
-    /*mexe global*/
-    color: #EFEFEF;
 }
 
 .input-group {

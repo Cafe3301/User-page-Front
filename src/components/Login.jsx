@@ -71,7 +71,7 @@ const Login = () => {
                             <HiLockClosed className='icon'/>
                         </div>
                         <p className='forgot-password'>
-                                <Link to="/reset-password">Esqueceu a senha?</Link>
+                                <Link to="/forgot-password">Esqueceu a senha?</Link>
                             </p>
                         <button type="submit">Entrar</button>
                     </form>
