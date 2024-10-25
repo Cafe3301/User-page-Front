@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
-import carImage from '../assets/car.svg'; 
+import Logo from '../assets/Logo.png'; 
+import { HiLockClosed} from "react-icons/hi2";
+import { BiSolidUser } from "react-icons/bi";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -40,10 +42,10 @@ const Login = () => {
         <div className='login-page'>
             <div className="container">
                 <div className="header-container">
-                    <img className='photo' src={carImage} alt="car photo" />
+                    <img className='photo' src={Logo} alt="logo photo" />
                 </div>
-                <h1 className='titulo__inicio'>Welcome Back</h1>
-                <p className='paragrafo__inicio'>Welcome back, we missed you</p>
+                <h1 className='titulo__inicio'>Bem-Vindo</h1>
+                <p className='paragrafo__inicio'>É bom tê-lo de volta</p>
                 <div className="form-card">
                     <form onSubmit={handleSubmit}>
                         <div className="input-group">
@@ -55,6 +57,7 @@ const Login = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
+                            <BiSolidUser className='icon' />
                         </div>
                         <div className="input-group">
                             <label>Sua Senha</label>
@@ -65,11 +68,12 @@ const Login = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
+                            <HiLockClosed className='icon'/>
                         </div>
                         <p className='forgot-password'>
                                 <Link to="/reset-password">Esqueceu a senha?</Link>
                             </p>
-                        <button type="submit">Login</button>
+                        <button type="submit">Entrar</button>
                     </form>
                     {message && <p>{message.trim()}</p>} {}
                     <p className='register'>
