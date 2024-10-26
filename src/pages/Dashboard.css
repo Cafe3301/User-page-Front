@@ -73,6 +73,7 @@
 
 .non-car p span {
     display: block;
+    margin-left: 3px;
 }
 
 .non-car img {
@@ -119,39 +120,103 @@
 }
 
 .button {
-    background: linear-gradient(90deg, #68e4b4 10%, #2e5847 90%);
-    color: white;
-    border: none;
-    margin-top: 2rem;
-    padding: 0.7rem 2rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
+    background-color: #444;
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 0.5rem;
+    margin-top: 30px;
+    margin: auto;
 }
 
 .button:hover {
-    background-color: #ff8567;
+    background-color: #4caf50;
+    transform: scale(1.1);
+}
+
+.button:active{
+    transform: scale(0.9);
 }
 
 footer {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    background: #1e1e1e; 
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     padding: 1rem 0;
-    text-align: center;
-    position: fixed; 
-    bottom: 0; 
+    background-color: #333; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 2rem auto;
+    width: 90%; 
+    max-width: 800px;
+    position: relative;
 }
 
 .footer-icon {
-    width: 20%;
-    margin: 0 1rem;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+
+footer div:hover .footer-icon {
+    color: #fff;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    opacity: 0.7;
+}
+
+footer div:hover {
+    transform: scale(1.1);
+}
+
+footer div:active {
+    transform: scale(0.9);
+}
+
+footer p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    font-family: sans-serif;
+}
+
+footer div:hover p {
+    color: #4caf50;
+}
+
+.footer-button {
+    background-color: #444;
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 0.5rem;
+}
+
+footer div:hover .footer-button {
+    background-color: #4caf50;
+    transform: scale(1.1);
+}
+
+footer div:active .footer-button {
+    transform: scale(0.9);
 }
 
 .modal-overlay {
-    position: fixed;
+    position:absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -196,6 +261,7 @@ footer {
     padding: 0.7rem;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 0.5em;
 }
 .button-cancel{
     background: #a52020;
@@ -206,8 +272,12 @@ footer {
     cursor: pointer;
 }
 
-.modal-content button:hover {
-    background: #68e4b4;
+.button-confirm button:hover {
+    background: #4caf50;
+}
+
+.button-cancel button:hover{
+    background: #c99c1f;
 }
 
 

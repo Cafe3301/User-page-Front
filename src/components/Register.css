@@ -4,6 +4,26 @@
     box-sizing: border-box; 
 }
 
+.error-message {
+    color: #ff4d4d; /* Cor vermelha para erro */
+    background-color: #ffe6e6; /* Fundo levemente vermelho */
+    padding: 1rem;
+    border: 1px solid #ff4d4d;
+    border-radius: 5px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.success-message {
+    color: #4caf50; /* Cor verde para sucesso */
+    background-color: #e6ffe6; /* Fundo levemente verde */
+    padding: 1rem;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 html, body {
     margin: 0; 
     padding: 0; 

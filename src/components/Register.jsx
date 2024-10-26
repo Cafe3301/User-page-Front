@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Register.css'; 
+import './Register.css';
 import Logo from '../assets/Logo.png'
 
 
@@ -13,10 +13,11 @@ const Register = () => {
     const [phone, setPhone] = useState('');
     const [cpf, setCpf] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate(); 
+    const [messageType, setMessageType] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const userData = {
             name,
@@ -37,13 +38,25 @@ const Register = () => {
             localStorage.setItem('userEmail', response.data.user.email);
             localStorage.setItem('userCPF', response.data.user.cpf);
 
+            {
+                message && (
+                    <p className={messageType === 'error' ? 'error-message' : 'success-message'}>
+                        {message}
+                    </p>
+                )
+            }
+
 
             navigate('/dashboard');
+            setMessageType('success');
+            setMessage('Operação realizada com sucesso!');
         } catch (error) {
             if (error.response && error.response.data) {
-                setMessage(error.response.data.msg); 
+                setMessageType('error');
+                setMessage(error.response.data.msg);
             } else {
-                setMessage('Erro ao conectar com o servidor'); 
+                setMessageType('error');
+                setMessage('Erro ao conectar com o servidor');
             }
         }
     };

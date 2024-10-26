@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
+import { TfiMapAlt, TfiPanel, TfiUser, TfiAgenda } from "react-icons/tfi";
 
 const Dashboard = () => {
     const [cars, setCars] = useState([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
         appointmentDate: '',
         status: 'Agendado'
     });
-    
+
     const userName = localStorage.getItem('userName');
     const userCPF = localStorage.getItem('userCPF');
 
@@ -28,7 +29,7 @@ const Dashboard = () => {
             }
 
             try {
-                const apiUrl = import.meta.env.VITE_ADMIN_API_URL; 
+                const apiUrl = import.meta.env.VITE_ADMIN_API_URL;
                 const response = await axios.get(`${apiUrl}/cars/user/${userCPF}`);
                 setCars(response.data);
             } catch (error) {
@@ -40,43 +41,43 @@ const Dashboard = () => {
 
     const fetchQueueCounts = async () => {
         try {
-            const apiUrl = import.meta.env.VITE_ADMIN_API_URL; 
+            const apiUrl = import.meta.env.VITE_ADMIN_API_URL;
             const response = await axios.get(`${apiUrl}/cars/queue/count`);
             const { awaiting, washing } = response.data;
             const overall = awaiting + washing;
-            setQueueCount(overall); 
+            setQueueCount(overall);
         } catch (error) {
             console.error('Erro ao buscar contagem de carros na fila:', error);
         }
     };
 
     useEffect(() => {
-        fetchQueueCounts(); 
-    }, []); 
+        fetchQueueCounts();
+    }, []);
 
     const getStatusColor = (status) => {
         switch (status) {
             case 'Aguardando':
-                return 'red'; 
+                return 'red';
             case 'Lavando':
-                return 'yellow'; 
+                return 'yellow';
             case 'Pronto':
-                return 'green'; 
+                return 'green';
             default:
-                return 'white'; 
+                return 'white';
         }
     };
 
     const handleModalOpen = () => {
         setModalOpen(true);
-        setAppointmentData({ 
-            userName, 
-            userCPF, 
+        setAppointmentData({
+            userName,
+            userCPF,
             userPhone: '',
             userEmail: '',
-            carId: '', 
-            appointmentDate: '', 
-            status: 'Agendado' 
+            carId: '',
+            appointmentDate: '',
+            status: 'Agendado'
         });
     };
 
@@ -106,8 +107,8 @@ const Dashboard = () => {
             <div className="header">
                 <div className="user-info">
                     <div className="greeting-container">
-                        <h2>Olá {userName.charAt(0).toUpperCase() + userName.slice(1)},</h2>
-                        <p>Está tudo bem? Hoje é um belo, <span>dia para lavar o seu carro</span></p>
+                        <h2>Olá {userName ? userName.charAt(0).toUpperCase() + userName.slice(1) : 'Usuário'},</h2>
+                        <p>Está tudo bem? Hoje é um belo dia para lavar o seu carro</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +118,7 @@ const Dashboard = () => {
                     {cars.length === 0 ? (
                         <div className='non-car'>
                             <img src="/src/assets/Carpool-pana.svg" alt="car photo" />
-                            <p>Você não possui nenhum carro <span>sendo lavado no momento :(</span></p>
+                            <p>Você não possui nenhum carro sendo lavado no momento</p>
                         </div>
                     ) : (
                         cars.map(car => (
@@ -127,7 +128,7 @@ const Dashboard = () => {
                                 <p><strong>Modelo:</strong> {car.model}</p>
                                 <p><strong>Ano:</strong> {car.year}</p>
                                 <p>
-                                    <strong>Status:   </strong> 
+                                    <strong>Status:   </strong>
                                     <span style={{ color: getStatusColor(car.status) }}>
                                         {car.status}
                                     </span>
@@ -139,9 +140,13 @@ const Dashboard = () => {
 
                 <div className="queue-car">
                     <p>No momento possui</p>
-                    <h1>{queueCount}</h1>
+                    <h1 className='numero-de-carros'>{Number.isNaN(queueCount) ? 0 : queueCount ?? 0}</h1>
                     <p>veículos na fila</p>
-                    <button className="button" onClick={handleModalOpen}>Fazer agendamento?</button>
+                    <div>
+                        <button className="footer-button" onClick={handleModalOpen}> 
+                            <TfiAgenda className='footer-icon' />Fazer Agendamento?
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -150,38 +155,40 @@ const Dashboard = () => {
                     <div className="modal-content">
                         <h2>Agendar Lavagem</h2>
                         <form onSubmit={handleSubmit}>
-                            <input 
-                                type="text" 
-                                name="userName" 
-                                value={appointmentData.userName} 
-                                readOnly 
+                            <input
+                                type="text"
+                                name="userName"
+                                placeholder="Nome Completo"
+                                value={appointmentData.userName}
+                                readOnly
                             />
-                            <input 
-                                type="text" 
-                                name="userCPF" 
-                                value={appointmentData.userCPF} 
-                                readOnly 
+                            <input
+                                type="text"
+                                name="userCPF"
+                                placeholder="CPF"
+                                value={appointmentData.userCPF}
+                                readOnly
                             />
-                            <input 
-                                type="text" 
-                                name="userPhone" 
-                                placeholder="Número de telefone" 
-                                value={appointmentData.userPhone} 
-                                onChange={handleInputChange} 
-                                required 
+                            <input
+                                type="text"
+                                name="userPhone"
+                                placeholder="Número de telefone"
+                                value={appointmentData.userPhone}
+                                onChange={handleInputChange}
+                                required
                             />
-                            <input 
-                                type="email" 
-                                name="userEmail" 
-                                placeholder="Email" 
-                                value={appointmentData.userEmail} 
-                                onChange={handleInputChange} 
-                                required 
+                            <input
+                                type="email"
+                                name="userEmail"
+                                placeholder="Email"
+                                value={appointmentData.userEmail}
+                                onChange={handleInputChange}
+                                required
                             />
-                            <select 
-                                name="carId" 
-                                value={appointmentData.carId} 
-                                onChange={handleInputChange} 
+                            <select
+                                name="carId"
+                                value={appointmentData.carId}
+                                onChange={handleInputChange}
                                 required
                             >
                                 <option value="">Selecione um carro</option>
@@ -189,12 +196,12 @@ const Dashboard = () => {
                                     <option key={car._id} value={car._id}>{car.name}</option>
                                 ))}
                             </select>
-                            <input 
-                                type="datetime-local" 
-                                name="appointmentDate" 
-                                value={appointmentData.appointmentDate} 
-                                onChange={handleInputChange} 
-                                required 
+                            <input
+                                type="datetime-local"
+                                name="appointmentDate"
+                                value={appointmentData.appointmentDate}
+                                onChange={handleInputChange}
+                                required
                             />
                             <button className='button-confirm' type="submit">Agendar</button>
                             <button className='button-cancel' type="button" onClick={handleModalClose}>Cancelar</button>
@@ -204,9 +211,30 @@ const Dashboard = () => {
             )}
 
             <footer>
-                <Link to="/dashboard"><div><img className="footer-icon" src="/src/assets/home.svg" alt="home-footer" /></div></Link>
-                <Link to="/map"><div><img className="footer-icon" src="/src/assets/map.svg" alt="map-footer" /></div></Link>
-                <Link to="/Profile"><div><img className="footer-icon" src="/src/assets/user.svg" alt="user-footer" /></div></Link>
+                <Link to="/dashboard">
+                    <div>
+                        <div className="footer-button">
+                            <TfiPanel className="footer-icon" />
+                        </div>
+                        <p>Painel</p>
+                    </div>
+                </Link>
+                <Link to="/map">
+                    <div>
+                        <div className="footer-button">
+                            <TfiMapAlt className="footer-icon" />
+                        </div>
+                        <p>Mapa</p>
+                    </div>
+                </Link>
+                <Link to="/profile">
+                    <div>
+                        <div className="footer-button">
+                            <TfiUser className='footer-icon' />
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </Link>
             </footer>
         </div>
     );
