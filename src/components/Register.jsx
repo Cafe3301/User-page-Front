@@ -118,7 +118,7 @@ const Register = () => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             required
-                            maxLength="11" // Limite para telefone
+                            maxLength="11" 
                         />
                     </div>
                     <div className="input-group">
@@ -129,12 +129,12 @@ const Register = () => {
                             value={cpf}
                             onChange={(e) => setCpf(e.target.value)}
                             required
-                            maxLength="14" // Limite para CPF
+                            maxLength="14" 
                         />
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>
-                {message && <p>{message.trim()}</p>} {/* Mensagem de feedback */}
+                {message && <p>{message.trim()}</p>} {}
                 <p className='login'>
                     Já tem uma conta? <Link to="/login">Faça login</Link>
                 </p>
