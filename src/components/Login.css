@@ -6,7 +6,27 @@ body {
 }
 
 .header-container .photo {
-    padding: 3rem;
+    height: 450px;
+    padding-bottom: 0px auto;
+    margin-bottom: -150px;
+    margin-top: -100px;
+}
+
+.password-page .form-card {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    margin-top: 20px;
+    padding-bottom: 2.9rem;
+    background-color: #252525;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    /*mexe global*/
+    color: #EFEFEF;
 }
 
 .titulo__inicio {
@@ -14,6 +34,7 @@ body {
     margin: 0;
     padding-top: 1.5rem;
     font-size: 2rem;
+    font-family: Helvetica;
 }
 
 .paragrafo__inicio {
@@ -40,24 +61,35 @@ body {
     text-decoration: underline;
 }
 
-
-.login-page .form-card {
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    padding: 2rem;
-    padding-bottom: 2.9rem;
-    background-color: #252525;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-label{ /*mexe global*/
-    color: #EFEFEF;
-}
-
 .input-group {
-    padding-bottom: 0rem;
+    position: relative;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 10px 10px 25px; 
+    background-color: transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+}
+
+.input-group .icon {
+    position: absolute;
+    right: 25px; 
+    top: 50%;
+    font-size: 24px;
+    color: #fff;
+    pointer-events: none; /* Impede que o ícone interfira na interação com o input */
 }
 
 .login-page .register {
@@ -73,4 +105,57 @@ label{ /*mexe global*/
 
 .login-page .register a:hover {
     text-decoration: none;
+}
+
+.login-page button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    width: 50%;
+    margin-left: 26%;
+    border-radius: 10rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(20, 80, 0);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem; 
+    letter-spacing: 0.1rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.login-page button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(20, 80, 0);
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.login-page button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(18, 172, 18);
+    transition: all 0.4s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.login-page button:hover {
+    color: #000000;
+}
+
+.login-page button:hover::before {
+    width: 100%;
 }

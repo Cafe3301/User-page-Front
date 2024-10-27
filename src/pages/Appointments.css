@@ -9,8 +9,19 @@
 
 h1 {
     text-align: center;
-    color: #333;
+    color:black;
     margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    color: #A4A4A4;
+    margin: 0.2em; 
+    padding: 0; 
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .appointments-block {
@@ -45,28 +56,74 @@ h1 {
 }
 
 footer {
-    background-color: #1e1e1e;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    background-color: #333; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 2rem auto;
+    width: 90%; 
+    max-width: 800px; 
 }
 
 .footer-icon {
     width: 24px;
     height: 24px;
+    color: #fff;
+}
+
+footer div:hover .footer-icon {
+    color: #fff;
 }
 
 footer a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s;
 }
 
 footer a:hover {
     opacity: 0.7;
+}
+
+footer div:hover {
+    transform: scale(1.1);
+}
+
+footer div:active {
+    transform: scale(0.9);
+}
+
+footer p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    font-family: sans-serif;
+}
+
+footer div:hover p {
+    color: #4caf50;
+}
+
+.footer-button {
+    background-color: #444;
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 0.5rem;
+}
+
+footer div:hover .footer-button {
+    background-color: #4caf50;
+    transform: scale(1.1);
+}
+
+footer div:active .footer-button {
+    transform: scale(0.9);
 }

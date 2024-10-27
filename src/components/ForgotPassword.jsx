@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Logo from '../assets/Logo.png';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -16,19 +17,24 @@ const ForgotPassword = () => {
     };
 
     return (
-        <div>
-            <h1>Recuperar Senha</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Digite seu email"
-                    required
-                />
-                <button type="submit">Enviar Email</button>
-            </form>
-            {message && <p>{message}</p>}
+        <div className='password-page'>
+            <div className="header-container">
+                    <img className='photo' src={Logo} alt="logo photo" />
+                </div>
+            <h1 className='titulo__inicio'>Recuperar Senha</h1>
+            <div className='form-card'>
+                <form onSubmit={handleSubmit}>
+                    <input className='input-group'
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Digite seu email"
+                        required
+                    />
+                    <button type="submit">Enviar Email</button>
+                </form>
+                {message && <p>{message}</p>}
+            </div>
         </div>
     );
 };

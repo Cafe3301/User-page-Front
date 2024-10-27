@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Register.css'; 
-import illustrationImage from '../assets/register.svg'; 
+import './Register.css';
+import Logo from '../assets/Logo.png'
 
 
 const Register = () => {
@@ -13,10 +13,11 @@ const Register = () => {
     const [phone, setPhone] = useState('');
     const [cpf, setCpf] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate(); 
+    const [messageType, setMessageType] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const userData = {
             name,
@@ -37,13 +38,25 @@ const Register = () => {
             localStorage.setItem('userEmail', response.data.user.email);
             localStorage.setItem('userCPF', response.data.user.cpf);
 
+            {
+                message && (
+                    <p className={messageType === 'error' ? 'error-message' : 'success-message'}>
+                        {message}
+                    </p>
+                )
+            }
+
 
             navigate('/dashboard');
+            setMessageType('success');
+            setMessage('Operação realizada com sucesso!');
         } catch (error) {
             if (error.response && error.response.data) {
-                setMessage(error.response.data.msg); 
+                setMessageType('error');
+                setMessage(error.response.data.msg);
             } else {
-                setMessage('Erro ao conectar com o servidor'); 
+                setMessageType('error');
+                setMessage('Erro ao conectar com o servidor');
             }
         }
     };
@@ -51,9 +64,9 @@ const Register = () => {
     return (
         <div className="container">
             <div className="header-container">
-                <img className='photo' src={illustrationImage} alt="Person photo" />
-                <h1 className='titulo__inicio'>Get Started Free</h1>
-                <p className='paragrafo__inicio'>Free Forever. No Credit Card Needed</p>
+                <img className='photo' src={Logo} alt="Person photo" />
+                <h1 className='titulo__inicio'>Crie sua Conta e Comece Agora</h1>
+                <p className='paragrafo__inicio'>Cadastre-se e agende sua lavagem com profissionais especializados.</p>
             </div>
             <div className="form-card">
                 <form onSubmit={handleSubmit}>
