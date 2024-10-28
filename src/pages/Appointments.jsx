@@ -25,6 +25,7 @@ const Appointments = () => {
     }, [userCPF]);
 
     return (
+    <div>    
         <div className="appointments-container">
             <h1>Meus Agendamentos</h1>
             {appointments.length === 0 ? (
@@ -42,6 +43,7 @@ const Appointments = () => {
                     </ul>
                 </div>
             )}
+                    </div>
             <footer>
                 <Link to="/dashboard">
                     <div>
@@ -69,6 +71,7 @@ const Appointments = () => {
                 </Link>
             </footer>
         </div>
+        
     );
 };
 

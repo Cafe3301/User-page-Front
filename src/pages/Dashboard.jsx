@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import { TfiMapAlt, TfiPanel, TfiUser, TfiAgenda } from "react-icons/tfi";
+import CarPol from '../assets/Car-pool.svg';
+import CarWish from '../assets/Car-wish.svg';
 
 const Dashboard = () => {
     const [cars, setCars] = useState([]);
@@ -14,7 +18,7 @@ const Dashboard = () => {
         userPhone: '',
         userEmail: '',
         carId: '',
-        appointmentDate: '',
+        appointmentDate: null,
         status: 'Agendado'
     });
 
@@ -76,7 +80,7 @@ const Dashboard = () => {
             userPhone: '',
             userEmail: '',
             carId: '',
-            appointmentDate: '',
+            appointmentDate: null,
             status: 'Agendado'
         });
     };
@@ -88,6 +92,15 @@ const Dashboard = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setAppointmentData(prevData => ({ ...prevData, [name]: value }));
+    };
+
+    const handleDateChange = (date) => {
+        setAppointmentData(prevData => ({ ...prevData, appointmentDate: date }));
+    };
+
+    const filterTime = (time) => {
+        const hour = time.getHours();
+        return hour >= 8 && hour <= 18; // Permitir apenas das 8h às 18h
     };
 
     const handleSubmit = async (e) => {
@@ -117,13 +130,13 @@ const Dashboard = () => {
                 <div className="car-section">
                     {cars.length === 0 ? (
                         <div className='non-car'>
-                            <img src="/src/assets/Carpool-pana.svg" alt="car photo" />
+                            <img src={CarPol} alt="car photo" />
                             <p>Você não possui nenhum carro sendo lavado no momento</p>
                         </div>
                     ) : (
                         cars.map(car => (
                             <div key={car._id} className="car-status-container">
-                                <img className='car-wish' src="/src/assets/car-wish.svg" alt="car wish photo" />
+                                <img className='car-wish' src={CarWish} alt="car wish photo" />
                                 <p><strong>Nome:</strong> {car.name}</p>
                                 <p><strong>Modelo:</strong> {car.model}</p>
                                 <p><strong>Ano:</strong> {car.year}</p>
@@ -143,7 +156,7 @@ const Dashboard = () => {
                     <h1 className='numero-de-carros'>{Number.isNaN(queueCount) ? 0 : queueCount ?? 0}</h1>
                     <p>veículos na fila</p>
                     <div>
-                        <button className="footer-button" onClick={handleModalOpen}> 
+                        <button className="footer-button" onClick={handleModalOpen}>
                             <TfiAgenda className='footer-icon' />Fazer Agendamento?
                         </button>
                     </div>
@@ -185,22 +198,24 @@ const Dashboard = () => {
                                 onChange={handleInputChange}
                                 required
                             />
-                            <select
+                            <input
+                                type="text"
                                 name="carId"
+                                placeholder="Nome do Carro"
                                 value={appointmentData.carId}
                                 onChange={handleInputChange}
                                 required
-                            >
-                                <option value="">Selecione um carro</option>
-                                {cars.map(car => (
-                                    <option key={car._id} value={car._id}>{car.name}</option>
-                                ))}
-                            </select>
-                            <input
-                                type="datetime-local"
-                                name="appointmentDate"
-                                value={appointmentData.appointmentDate}
-                                onChange={handleInputChange}
+                            />
+                            <DatePicker
+                                selected={appointmentData.appointmentDate}
+                                onChange={handleDateChange}
+                                filterDate={date => date.getDay() === 6} // 6 representa sábado
+                                filterTime={filterTime} // Filtra os horários
+                                placeholderText="Selecione um sábado das 8h às 18h"
+                                showTimeSelect
+                                timeFormat="HH:mm"
+                                timeIntervals={30}
+                                dateFormat="Pp"
                                 required
                             />
                             <button className='button-confirm' type="submit">Agendar</button>
