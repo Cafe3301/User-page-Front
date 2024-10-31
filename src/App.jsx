@@ -5,14 +5,14 @@ import Login from './components/Login';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile'; 
 import Appointments from './pages/Appointments'; 
-import ForgotPassword from './components/ForgotPassword'
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword'; // Importar o componente
 import ProtectedRoute from './routes/ProtectedRoute';
 
 const App = () => {
     return (
         <Router>
             <Routes>
-                {/* Redireciona da rota raiz (/) para /register */}
                 <Route path="/" element={<Navigate to="/register" />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
@@ -41,7 +41,8 @@ const App = () => {
                     }
                 />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-            </Routes>
+                <Route path="/reset-password/:token" element={<ResetPassword />} />
+                </Routes>
         </Router>
     );
 };

@@ -8,19 +8,27 @@ const ForgotPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const apiUrl = import.meta.env.VITE_API_URL; // Usando a variável do Vite
+
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
-            setMessage(response.data.message);
+            const response = await axios.post(`${apiUrl}/auth/forgot-password`, { email });
+            console.log(response.data); // Log da resposta
+            setMessage(response.data.message); // Acessando a propriedade correta
         } catch (error) {
-            setMessage('Erro ao enviar o email.');
+            console.error(error); // Log do erro
+            if (error.response && error.response.data) {
+                setMessage(error.response.data.message || 'Erro ao enviar o email.');
+            } else {
+                setMessage('Erro ao enviar o email.');
+            }
         }
     };
 
     return (
         <div className='password-page'>
             <div className="header-container">
-                    <img className='photo' src={Logo} alt="logo photo" />
-                </div>
+                <img className='photo' src={Logo} alt="logo photo" />
+            </div>
             <h1 className='titulo__inicio'>Recuperar Senha</h1>
             <div className='form-card'>
                 <form onSubmit={handleSubmit}>
