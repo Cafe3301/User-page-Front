@@ -18,7 +18,10 @@ const ResetPassword = () => {
 
         try {
             const apiUrl = import.meta.env.VITE_API_URL; // Usando a variável do Vite
-            const response = await axios.post(`${apiUrl}/auth/reset-password/${token}`, { newPassword, confirmpassword: confirmPassword });
+            const response = await axios.post(`${apiUrl}/auth/reset-password/${token}`, { 
+                newPassword, 
+                confirmpassword: confirmPassword // Confirme que `confirmPassword` está correto aqui
+            });            
             setMessage(response.data.msg);
         } catch (error) {
             console.error(error); // Log do erro
