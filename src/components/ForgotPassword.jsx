@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Logo from '../assets/Logo.png';
+import { Link } from 'react-router-dom';
+import Login from './Login';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -19,8 +21,10 @@ const ForgotPassword = () => {
     return (
         <div className='password-page'>
             <div className="header-container">
+                <Link to="/login">
                     <img className='photo' src={Logo} alt="logo photo" />
-                </div>
+                </Link>
+            </div>
             <h1 className='titulo__inicio'>Recuperar Senha</h1>
             <div className='form-card'>
                 <form onSubmit={handleSubmit}>

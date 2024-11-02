@@ -104,3 +104,7 @@ Para mais informações, entre em contato:
 - **Email**: reis6@outlook.com
 - **LinkedIn**: [Seu LinkedIn](https://www.linkedin.com/in/eduardo-alkimim-reis-a5b26a258/)
 
+- **Nome**: Augusto Cezar Diniz  
+- **Email**: augustocezardiniz@gmail.com
+- **LinkedIn**: [Seu LinkedIn](hhttps://www.linkedin.com/in/augusto-cezar-diniz-102ba2322/)
+
