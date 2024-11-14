@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile'; 
 import Appointments from './pages/Appointments'; 
 import ForgotPassword from './components/ForgotPassword';
-import ResetPassword from './components/ResetPassword'; // Importar o componente
+import ResetPassword from './components/ResetPassword';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 const App = () => {
@@ -42,7 +42,7 @@ const App = () => {
                 />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password/:token" element={<ResetPassword />} />
-                </Routes>
+            </Routes>
         </Router>
     );
 };
