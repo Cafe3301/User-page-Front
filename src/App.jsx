@@ -21,22 +21,34 @@ const App = () => {
                 <Route
                     path="/dashboard"
                     element={
+                        <ProtectedRoute>
                             <Dashboard />
+                            </ProtectedRoute>
                     }
                 />
                 <Route
                     path="/profile"
                     element={
+                        <ProtectedRoute>
                             <Profile />
+                            </ProtectedRoute>
                     }
                 />
                 <Route
                     path="/appointments"
                     element={
+                        <ProtectedRoute>
                             <Appointments />
+                        </ProtectedRoute>
                     }
                 />
-                <Route path="/map" element={<Map/>} />
+                <Route 
+                path="/map" 
+                element={
+                    <ProtectedRoute>
+                        <Map/>
+                        </ProtectedRoute>
+                        } />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password/:token" element={<ResetPassword />} />
             </Routes>
