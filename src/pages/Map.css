@@ -1,0 +1,21 @@
+.map-container .leaflet-container {
+    filter: invert(90%) brightness(0.7); /* Experimentar valores diferentes */
+}
+.map-container {
+    height: 100%; /* Ocupa a altura total do pai */
+    width: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.leaflet-container {
+    height: calc(100vh - 70px); /* Define altura total menos a altura do footer */
+    width: 100%;
+}
+/* Map.css */
+.footer{
+    height: 50%;
+    bottom: 1rem;
+}
+
+

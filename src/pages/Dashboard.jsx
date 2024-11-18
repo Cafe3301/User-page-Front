@@ -7,6 +7,7 @@ import './Dashboard.css';
 import { TfiMapAlt, TfiPanel, TfiUser, TfiAgenda } from "react-icons/tfi";
 import CarPol from '../assets/Car-pool.svg';
 import CarWish from '../assets/car-wish.svg';
+import Map from './Map';
 
 const Dashboard = () => {
     const [cars, setCars] = useState([]);
